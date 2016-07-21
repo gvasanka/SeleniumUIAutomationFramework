@@ -32,8 +32,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.3</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -53,6 +53,18 @@
             <artifactId>selenium-java</artifactId>
             <version>2.53.1</version>
         </dependency>
+
+
+        <!--<dependency>-->
+            <!--<groupId>selenium_2_53_1</groupId>-->
+            <!--<artifactId>com.seleniumhq.selenium_2_53_1 </artifactId>-->
+            <!--<version>2.53.1</version>-->
+            <!--<scope>system</scope>-->
+            <!--<systemPath>-->
+                <!--/home/asankav/software/selenium/selenium-server-standalone-2.53.1.jar-->
+            <!--</systemPath>-->
+        <!--</dependency>-->
+
         <!-- https://mvnrepository.com/artifact/commons-logging/commons-logging -->
         <dependency>
             <groupId>commons-logging</groupId>
