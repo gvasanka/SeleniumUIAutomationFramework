@@ -1,3 +1,4 @@
-# UIAutomation-WSO2APIManager2.0.0
+# UIAutomationFrmework
 
-Selenium UI Automation Test Suite for WSO2 API Manager.
+Generalized testing framework for selenium
+
