@@ -3,10 +3,9 @@ package org.asanka.automation.ui.utils.browser;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.MarionetteDriver;
-import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 
 /**
@@ -18,20 +17,29 @@ public class BrowserManager {
 
     public static WebDriver getWebDriver(String driverSelection)  {
         if (driverSelection.equalsIgnoreCase("firefox")) {
+            System.setProperty("webdriver.gecko.driver", "src/main/resources/drivers/gecko/geckodriver");
+//           driver = new MarionetteDriver();
             driver = new FirefoxDriver();
+
         } else if (driverSelection.equalsIgnoreCase("chrome")) {
             System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chrome/chromedriver");
             driver = new ChromeDriver();
+
+        } else if (driverSelection.equalsIgnoreCase("remotefirefox")) {
+            System.setProperty("webdriver.gecko.driver", "src/main/resources/drivers/gecko/geckodriver");
+            DesiredCapabilities capabilities=DesiredCapabilities.firefox();
+            capabilities.setCapability("marionette", true);
+            WebDriver driver = new RemoteWebDriver(capabilities);
+
+
+        } else if (driverSelection.equalsIgnoreCase("remotechrome")) {
+            System.setProperty("webdriver.chrome.driver", "src/main/resources/drivers/chrome/chromedriver");
+            DesiredCapabilities desiredCapabilities=DesiredCapabilities.chrome();
+
+
         } else if (driverSelection.equalsIgnoreCase("ie")) {
             driver = new InternetExplorerDriver();
-        } else if (driverSelection.equalsIgnoreCase("geko")) {
-            System.setProperty("webdriver.gecko.driver", "src/main/resources/drivers/gecko/geckodriver");
-            driver = new MarionetteDriver();
-        }
-        else if (driverSelection.equalsIgnoreCase("htmlUnit")) {
-            driver = new HtmlUnitDriver(true);
-        } else {
-//            driver = new OperaDriver();
+
         }
         return driver;
     }
